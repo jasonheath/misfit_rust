@@ -1,0 +1,7 @@
+#!/bin/sh
+
+exec 2>&1
+
+cp {{pkg.path}}/{{pkg.name}} {{pkg.svc_files_path}}
+cp -r {{pkg.path}}/files {{pkg.svc_files_path}}
+cp -r {{pkg.path}}/templates {{pkg.svc_files_path}}

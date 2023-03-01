@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Poem Toy - Module Five</title>
+    <style>
+      form {
+        margin: 4em 4em;
+        width: 26em;
+      }
+      button {
+          display: block;
+          align-self: center;
+          margin: .5em auto;
+      }
+      body {
+        background-color:slategray;
+        color: linen;
+      }
+      input {
+        width: 16em;
+      }
+      label {
+        width: 8em;
+        display: inline-block;
+        text-align: left;
+        margin-bottom: 0.5em;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="=module_five_form" action="/" method="post" enctype="application/x-www-form-urlencoded" >
+      <h1>Module Five</h1>
+      <label for="merchant_id">Merchant ID:</label>
+      <input type="text" id="merchant_id" name="merchant_id" value="{{ t_merchant_id }}">
+      <br>
+      <label for="store_number">Store Number:</label>
+      <input type="text" id="store_number" name="store_number" value="{{ t_store_number }}">
+      <br>
+      <label for="street">Street:</label>
+      <input type="text" id="street" name="street" value="{{ t_street }}">
+      <br>
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" value="{{ t_city }}">
+      <br>
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" value="{{ t_state }}">
+      <br>
+      <label for="zip">Zip:</label>
+      <input type="text" id="zip" name="zip" value="{{ t_zip }}">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
