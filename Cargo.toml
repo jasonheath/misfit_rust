@@ -1,0 +1,11 @@
+[workspace]
+
+members = [
+    "ctrlc-toy",
+    "ordinality",
+    "paths",
+    "poem-toy",
+    "serde-toy",
+    "signals",
+    "size_of",
+]
