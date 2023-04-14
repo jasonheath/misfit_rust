@@ -1,3 +1,6 @@
+#![allow(clippy::disallowed_names)]
+#![allow(clippy::eq_op)]
+
 use std::{os::unix::prelude::OsStrExt, path::Path};
 
 fn main() {
