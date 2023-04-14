@@ -2,6 +2,7 @@
 
 members = [
     "ctrlc-toy",
+    "minigrep",
     "ordinality",
     "paths",
     "poem-toy",
