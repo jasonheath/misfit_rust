@@ -11,4 +11,3 @@ fn main() {
     rx.recv().expect("Could not receive from channel.");
     println!("Got it! Exiting...");
 }
-

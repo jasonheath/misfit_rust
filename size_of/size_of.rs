@@ -1,14 +1,27 @@
 fn main() {
+    println!(
+        "std::mem::size_of<ErrCode> = {}",
+        std::mem::size_of::<ErrCode>()
+    );
+    println!(
+        "std::mem::size_of<JustAnEmptyEnum> = {}",
+        std::mem::size_of::<JustAnEmptyEnum>()
+    );
+    println!(
+        "std::mem::size_of<HealthCheckResult> = {}",
+        std::mem::size_of::<HealthCheckResult>()
+    );
 
-    println!( "std::mem::size_of<ErrCode> = {}", std::mem::size_of::<ErrCode>() );
-    println!( "std::mem::size_of<JustAnEmptyEnum> = {}", std::mem::size_of::<JustAnEmptyEnum>() );
-    println!( "std::mem::size_of<HealthCheckResult> = {}", std::mem::size_of::<HealthCheckResult>() );
-
-    println!( "std::mem::size_of<&'static str> = {}", std::mem::size_of::<&'static str>() );
-    println!( "std::mem::size_of<&str> = {}", std::mem::size_of::<&str>() );
-    println!( "std::mem::size_of<String> = {}", std::mem::size_of::<String>() );
-    //println!( "std::mem::size_of<str> = {}", std::mem::size_of::<str>() ); // size uknown at compile time 
-
+    println!(
+        "std::mem::size_of<&'static str> = {}",
+        std::mem::size_of::<&'static str>()
+    );
+    println!("std::mem::size_of<&str> = {}", std::mem::size_of::<&str>());
+    println!(
+        "std::mem::size_of<String> = {}",
+        std::mem::size_of::<String>()
+    );
+    //println!( "std::mem::size_of<str> = {}", std::mem::size_of::<str>() ); // size uknown at compile time
 }
 
 pub enum JustAnEmptyEnum {}

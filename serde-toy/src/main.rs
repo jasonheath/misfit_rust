@@ -3,7 +3,7 @@ use std::{fs::File, io, path::Path};
 
 fn file_as_str(path_string: &str) -> Result<String, Error> {
     let path = Path::new(path_string);
-    let mut file = File::open(&path)?;
+    let mut file = File::open(path)?;
     let mut contents = String::new();
     file.read_to_string(&mut contents)?;
     Ok(contents)
@@ -15,9 +15,9 @@ fn write_string_to_file(data: String, path_str: &str) -> Result<File, io::Error>
     Ok(file)
 }
 
-fn json_compact_printer_transcode(input: &String) {
+fn json_compact_printer_transcode(input: &str) {
     // A JSON deserializer. You can use any Serde Deserializer here.
-    let mut deserializer = serde_json::Deserializer::from_str(input.as_str());
+    let mut deserializer = serde_json::Deserializer::from_str(input);
 
     // A compacted JSON serializer. You can use any Serde Serializer here.
     let mut serializer = serde_json::Serializer::new(io::stdout());
@@ -27,9 +27,9 @@ fn json_compact_printer_transcode(input: &String) {
     serde_transcode::transcode(&mut deserializer, &mut serializer).unwrap();
 }
 
-fn json_to_toml(input: &String) -> Result<String, Error> {
+fn json_to_toml(input: &str) -> Result<String, Error> {
     // A JSON deserializer. You can use any Serde Deserializer here.
-    let mut deserializer = serde_json::Deserializer::from_str(input.as_str());
+    let mut deserializer = serde_json::Deserializer::from_str(input);
 
     // A compacted JSON serializer. You can use any Serde Serializer here.
     let mut output = String::new();
@@ -41,31 +41,17 @@ fn json_to_toml(input: &String) -> Result<String, Error> {
 
     Ok(output)
 }
-// use serde::Deserialize;
-// #[derive(Deserialize)]
-// struct ModuleFive {
-//     merchant_id: String,
-//     store_number: String,
-//     street: String,
-//     city: String,
-//     state: String,
-//     zip: String,
-// }
 
-fn _toml_to_json(input: &String) -> Result<String, Error> {
+fn _toml_to_json(input: &str) -> Result<String, Error> {
     //let mut deserializer: ModuleFive = toml::from_str(input.as_str()).unwrap();
-    let mut deserializer = toml::Deserializer::new(input.as_str());
+    let mut deserializer = toml::Deserializer::new(input);
 
     let mut output = String::new();
-    let mut serializer = serde_json::Serializer::new(&mut output);
-
-    serde_transcode::transcode(&mut deserializer, &mut serializer).unwrap();
+    // let mut serializer = serde_json::Serializer::new(&mut output);
+    // serde_transcode::transcode(&mut deserializer, &mut serializer).unwrap();
 
     Ok(output)
 }
-
-#[allow(dead_code)]
-fn toml_to_json() {}
 
 fn main() -> Result<(), Error> {
     let json_str = file_as_str("json/application-settings-rendered.json")?;

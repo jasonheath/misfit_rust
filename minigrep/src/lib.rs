@@ -9,9 +9,7 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(
-        mut args: impl Iterator<Item = String>,
-    ) -> Result<Config, &'static str> {
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
 
         let query = match args.next() {
@@ -50,7 +48,6 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
@@ -58,10 +55,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
         .collect()
 }
 
-pub fn search_case_insensitive<'a>(
-    query: &str,
-    contents: &'a str,
-) -> Vec<&'a str> {
+pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let query = query.to_lowercase();
     let mut results = Vec::new();
 

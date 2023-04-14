@@ -106,11 +106,15 @@ fn path_methods() {
         std::path::MAIN_SEPARATOR.to_string().as_bytes()
     );
     //let a: u8 = dir_with_sep.as_os_str().as_bytes().last().unwrap_or(0);
-    let a: u8 = *(dir_with_sep.as_os_str().as_bytes().last().take().unwrap_or(&0));
+    let a: u8 = *(dir_with_sep
+        .as_os_str()
+        .as_bytes()
+        .last()
+        .take()
+        .unwrap_or(&0));
     let b: u8 = std::path::MAIN_SEPARATOR.to_string().as_bytes()[0];
 
     println!("{:n$}{:?}", "a == b", a == b);
-
 }
 
 fn _comparisons() {

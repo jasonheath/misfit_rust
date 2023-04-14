@@ -113,8 +113,7 @@ fn json_to_hashmap(path_string: &str) -> Result<HashMap<String, Value>, Error> {
     let mut file = File::open(path)?;
     let mut contents = String::new();
     file.read_to_string(&mut contents)?;
-    let file_values: HashMap<String, Value> =
-        serde_json::from_str(contents.as_str()).unwrap();
+    let file_values: HashMap<String, Value> = serde_json::from_str(contents.as_str()).unwrap();
     Ok(file_values)
 }
 

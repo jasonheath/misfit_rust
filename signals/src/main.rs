@@ -1,4 +1,4 @@
-use std::{ffi::c_int};
+use std::ffi::c_int;
 
 use nix::{
     libc::sigset_t,
