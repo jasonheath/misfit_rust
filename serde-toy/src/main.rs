@@ -44,9 +44,9 @@ fn json_to_toml(input: &str) -> Result<String, Error> {
 
 fn _toml_to_json(input: &str) -> Result<String, Error> {
     //let mut deserializer: ModuleFive = toml::from_str(input.as_str()).unwrap();
-    let mut deserializer = toml::Deserializer::new(input);
+    let mut _deserializer = toml::Deserializer::new(input);
 
-    let mut output = String::new();
+    let output = String::new();
     // let mut serializer = serde_json::Serializer::new(&mut output);
     // serde_transcode::transcode(&mut deserializer, &mut serializer).unwrap();
 

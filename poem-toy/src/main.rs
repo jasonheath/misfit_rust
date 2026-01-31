@@ -219,7 +219,8 @@ async fn module_five_process(Form(params): Form<ModuleFiveParams>) -> impl IntoR
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
     if std::env::var_os("RUST_LOG").is_none() {
-        std::env::set_var("RUST_LOG", "poem=debug,tera=debug");
+        // TODO: Audit that the environment access only happens in single-threaded code.
+        unsafe { std::env::set_var("RUST_LOG", "poem=debug,tera=debug") };
     }
     tracing_subscriber::fmt::init();
     // get(module_five_form).post(module_five_process),

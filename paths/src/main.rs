@@ -110,7 +110,6 @@ fn path_methods() {
         .as_os_str()
         .as_bytes()
         .last()
-        .take()
         .unwrap_or(&0));
     let b: u8 = std::path::MAIN_SEPARATOR.to_string().as_bytes()[0];
 
