@@ -152,7 +152,8 @@ fn hab_config_apply() {
 }
 
 #[handler]
-fn module_five() -> Result<Html<String>, poem::Error> {
+#[allow(clippy::result_large_err)]
+fn module_five() -> Result<Html<String>, poem::Error>{
     // let map = json_to_hashmap("habitat/config/application-settings.json").unwrap();
     // JAH: ABOVE is for running outside of supervisor
     // JAH: BELOW is for running inside of supervisor
