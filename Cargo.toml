@@ -9,4 +9,4 @@ members = [
     "signals",
     "size_of",
 ]
-resolver = "2"
+resolver = "3"
